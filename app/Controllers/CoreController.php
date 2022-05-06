@@ -12,8 +12,15 @@ class CoreController
      * @param array $viewData Tableau des données à transmettre aux vues
      * @return void
      */
+
+    public function __construct($router, $match) 
+    {
+        $this->router = $router;
+    }
+
     protected function show( string $viewName, $viewData = [])
     {
+        $router = $this->router;
         // Comme $viewData est déclarée comme paramètre de la méthode show()
         // les vues y ont accès
         // ici une valeur dont on a besoin sur TOUTES les vues

@@ -1,3 +1,13 @@
+<?php if (isset($errorList)) :?>
+  <?php foreach( $errorList as $currentError): ?>
+
+    <div class="alert alert-danger" role="alert">
+      <?= $currentError; ?>
+    </div>
+
+  <?php endforeach; ?>
+  <?php endif; ?>
+  
 <h2>Ajouter un utilisateur</h2>
 
 <form action="" method="POST" class="mt-5">

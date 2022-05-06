@@ -89,3 +89,17 @@ footer{
   }
 }
 
+.form-group{
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+
+.form-control{
+  background-color: rgb(231, 229, 229);
+}
+
+.btn-validate{
+  text-align: center;
+  background-color: rgb(192,192,192);
+  margin: 0 0 2rem 50%;
+}

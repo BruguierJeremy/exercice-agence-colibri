@@ -12,37 +12,66 @@ class AppUser extends CoreModel
     private $firstname;
     private $lastname;
 
+
+    public static function findByEmail(string $email)
+    {
+        // se connecter à la BDD
+        $pdo = Database::getPDO();
+
+        // écrire notre requête
+        $sql = 'SELECT * FROM `app_user` WHERE `email` = :email';
+
+        // préparer notre requête
+        $pdoStatement = $pdo->prepare($sql);
+
+        // remplir les emplacements
+        $pdoStatement->bindValue('email', $email, PDO::PARAM_STR);
+
+        $pdoStatement->execute();
+
+        // un seul résultat => fetchObject
+        $user = $pdoStatement->fetchObject(self::class);
+
+        // retourner le résultat
+        return $user;
+    }
+
     public function insert()
     {
-
+        // Récupération de l'objet PDO représentant la connexion à la DB
         $pdo = Database::getPDO();
-        
+
+        // Ecriture de la requête INSERT INTO
         $sql = "  
                 INSERT INTO `app_user` (
                 email, 
                 password, 
                 firstname, 
-                lastname,
+                lastname
             )
             VALUES (:email, :password, :firstname, :lastname);
         ";
 
+        // préparation de la requête ( au niveau de PDO )
         $pdoStatement = $pdo->prepare($sql);
 
+        // remplissage des emplacements 
         $pdoStatement->bindValue('email', $this->email, PDO::PARAM_STR);
         $pdoStatement->bindValue('password', $this->password, PDO::PARAM_STR);
         $pdoStatement->bindValue('firstname', $this->firstname, PDO::PARAM_STR);
         $pdoStatement->bindValue('lastname', $this->lastname, PDO::PARAM_STR);
 
+        // Execution de la requête d'insertion (exec, pas query)
         $isInserted = $pdoStatement->execute();
 
+        // Si au moins une ligne ajoutée
         if ($isInserted) {
-
+            // Alors on récupère l'id auto-incrémenté généré par MySQL
             $this->id = $pdo->lastInsertId();
-
+            // On retourne VRAI car l'ajout a parfaitement fonctionné
             return true;
         }
-
+        // Si on arrive ici, c'est que quelque chose n'a pas bien fonctionné 
         return false;
     }
 

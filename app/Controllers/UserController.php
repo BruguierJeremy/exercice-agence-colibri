@@ -8,16 +8,12 @@ class UserController extends CoreController
 {
     public function add()
     {
-        $emptyUser = new AppUser;
-        $this->show('/inscription', [
-            'errorList' => [],
-            'user' => $emptyUser,
-        ]);
+        $this->show('user/inscription');
     }
 
     public function addPost()
     {
-        $email = filter_input(INPUT_POST, 'email');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
         $firstname = filter_input(INPUT_POST, 'firstname');
         $lastname = filter_input(INPUT_POST, 'lastname');
@@ -40,16 +36,16 @@ class UserController extends CoreController
             $formErrorList[] = 'Le password est incorrect';
         }
         if (count($formErrorList) === 0) {
-            $user = new AppUser();
+            $newUser = new AppUser();
 
-            $user->setFirstname($firstname);
-            $user->setLastname($lastname);
-            $user->setEmail($email);
-            $user->setPassword($password);
-
-            $user->insert();
+            $newUser->setFirstname($firstname);
+            $newUser->setLastname($lastname);
+            $newUser->setEmail($email);
+            $newUser->setPassword(password_hash($password, PASSWORD_DEFAULT));
+            $newUser->insert();
         
             $this->redirect('main-home');
+            exit;
         } 
         else 
         {
@@ -60,7 +56,7 @@ class UserController extends CoreController
             $user->setEmail($_POST['email']);
             $user->setPassword($_POST['password']);
             // et on s'en servira pour afficher les données dans le formulaire de création
-            $this->show('AppUser/add', [
+            $this->show('user/inscription', [
                 'user' => $user,
                 'errorList' => $formErrorList,
             ]);
