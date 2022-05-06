@@ -91,3 +91,9 @@ footer{
 .form-control{
   background-color: rgb(192,192,192);
 }
+
+.btn-validate{
+  text-align: center;
+  background-color: rgb(192,192,192);
+  margin: 0 0 2rem 15rem;
+}

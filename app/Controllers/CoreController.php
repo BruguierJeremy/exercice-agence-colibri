@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class CoreController 
 {
-
+    protected $router;
     /**
      * Méthode permettant d'afficher du code HTML en se basant sur les views
      *
@@ -34,5 +34,10 @@ class CoreController
         require_once __DIR__ . '/../views/' . $viewName . '.tpl.php';
         require_once __DIR__ . '/../views/partials/_footer.tpl.php';
     }
-
+    public function redirect($route)
+    {
+        global $router;
+        header('Location: ' . $router->generate($route));
+        exit;
+    }
 }

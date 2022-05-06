@@ -39,9 +39,27 @@ $router->map(
     [
         'method' => 'home',
         'controller' => '\App\Controllers\MainController',
-        'role' => ['admin', 'catalog-manager'],
     ],
     'main-home'
+);
+
+$router->map(
+    'GET',
+    '/inscription',
+    [
+        'method' => 'add',
+        'controller' => '\App\Controllers\UserController',
+    ],
+    'user-add'
+);
+$router->map(
+    'POST',
+    '/inscription',
+    [
+        'method' => 'addPost',
+        'controller' => '\App\Controllers\UserController',
+    ],
+    'user-addPost'
 );
 
 /* -------------
