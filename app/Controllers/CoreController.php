@@ -30,9 +30,9 @@ class CoreController
         extract($viewData);
 
         // $viewData est disponible dans chaque fichier de vue
-        require_once __DIR__ . '/../views/layout/header.tpl.php';
+        require_once __DIR__ . '/../views/partials/_header.tpl.php';
         require_once __DIR__ . '/../views/' . $viewName . '.tpl.php';
-        require_once __DIR__ . '/../views/layout/footer.tpl.php';
+        require_once __DIR__ . '/../views/partials/_footer.tpl.php';
     }
 
 }

@@ -1,0 +1,85 @@
+body{
+  margin: auto;
+}
+
+nav{
+  display: flex;
+  background-color: rgb(128,128,128);
+  color: white;
+  justify-content: space-between;
+  padding: 0 8rem 0 8rem;
+  margin: 0 0 0 0;
+}
+
+h1{
+  font-size: 1.25rem;
+}
+
+ul li{
+  display: inline;
+}
+
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul{
+  padding-top: 0.3rem;
+}
+
+section{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10% 0 10%;
+}
+
+article{
+  flex-grow: 1;
+  flex-basis: 30%;
+  padding: 10rem 5rem 10rem 5rem;
+  background-color: rgb(192,192,192);
+}
+section :nth-child(3),
+section :nth-child(2) {
+  background-color: rgb(63,63,63);
+  color: white;
+}
+
+footer{
+  background-color: rgb(128,128,128);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 0 2.5rem 0;
+}
+
+@media (max-width: 1014px) {
+
+  section :nth-child(3),
+  section :nth-child(2){
+    background-color: rgb(192,192,192);
+    color: black;
+  }
+
+  section :nth-child(3),
+  section :nth-child(1) {
+    background-color: rgb(63,63,63);
+    color: white;
+  }
+}
+
+@media (max-width: 600px) {
+
+  nav{
+    padding: 0 2rem 0 2rem;
+  }
+  article{
+    padding: 10rem 2rem 10rem 2rem;
+    flex-basis: 50%;
+  }
+}
+
