@@ -21,12 +21,10 @@ abstract class CoreModel
 
 
     // tous les enfants de la classe CoreModel devront déclarer une fonction avec la même signature ( = même nom + même visibilité + même paramètres + le static aussi )
-    abstract public static function find(int $id);
-    abstract public static function findAll();
+
 
     abstract public function insert();
     abstract public function update();
-    abstract public static function delete($id);
 
     /**
      * cette fonction met à jour si c'est un objet existant

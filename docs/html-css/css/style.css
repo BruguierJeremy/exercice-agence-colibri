@@ -83,3 +83,11 @@ footer{
   }
 }
 
+.form-group{
+  margin: 0 0 3rem 0;
+  text-align: center;
+}
+
+.form-control{
+  background-color: rgb(192,192,192);
+}
