@@ -57,7 +57,7 @@ footer{
   padding: 2.5rem 0 2.5rem 0;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1014px) {
 
   section :nth-child(3),
   section :nth-child(2){
