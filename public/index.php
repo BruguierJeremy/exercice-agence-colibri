@@ -23,8 +23,6 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
     $_SERVER['BASE_URI'] = '/';
 }
 
-// On doit déclarer toutes les "routes" à AltoRouter,
-// afin qu'il puisse nous donner LA "route" correspondante à l'URL courante
 // 1. méthode HTTP
 // 2. La route : la portion d'URL après le basePath
 // 3. Target/Cible : informations contenant
@@ -33,6 +31,7 @@ if (array_key_exists('BASE_URI', $_SERVER)) {
 // 4. Le nom de la route : pour identifier la route, on va suivre une convention
 //      - "NomDuController-NomDeLaMéthode"
 //      - ainsi pour la route /, méthode "home" du MainController => "main-home"
+
 $router->map(
     'GET',
     '/',
@@ -89,6 +88,26 @@ $router->map(
     ],
     'main-logout'
 );
+
+$router->map(
+    'GET',
+    '/contact',
+    [
+        'method' => 'add',
+        'controller' => '\App\Controllers\ContactController',
+    ],
+    'contact-add'
+);
+$router->map(
+    'POST',
+    '/contact',
+    [
+        'method' => 'addPost',
+        'controller' => '\App\Controllers\ContactController',
+    ],
+    'contact-post'
+);
+
 /* -------------
 --- DISPATCH ---
 --------------*/

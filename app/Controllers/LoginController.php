@@ -23,8 +23,6 @@ class LoginController extends CoreController
     {
         // récupération des données
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-        // on ne nettoie pas le mot de passe sinon mon<password> est nettoyé en mon
         $password = filter_input(INPUT_POST, 'password');
 
         // validation des données
@@ -32,7 +30,7 @@ class LoginController extends CoreController
 
         if ($email === false)
         {
-            $errorList[] = 'L identifiant est votre email';
+            $errorList[] = 'L\'identifiant est votre email';
         }
 
         // si validation ok alors traitement des données
@@ -44,8 +42,10 @@ class LoginController extends CoreController
             if ($user === false)
             {
                 // l'email n'est pas bon => on rajoute une erreur
-                echo 'l email n est pas trouvé en BDD';
-                $errorList[] = 'l email n est pas trouvé en BDD';
+                $errorList[] = 'L\'email n\'est pas trouvé en BDD';
+                $this->show('user/login', [
+                    'errorList' => $errorList,
+                ]);
             }
             else 
             {
@@ -64,11 +64,18 @@ class LoginController extends CoreController
                 }
                 else
                 {
-                    echo 'Mot de passe erroné';
+                    $errorList[] = 'Mot de passe erroné';
+                    $this->show('user/login', [
+                        'errorList' => $errorList,
+                    ]);
                 }
             }
                 }
-
-        
+        else 
+        {
+            $this->show('user/login', [
+                'errorList' => $errorList,
+            ]);
+        }
     }
 }

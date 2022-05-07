@@ -11,6 +11,7 @@
     <nav>
         <h1>MON SUPER SITE</h1>
         <ul>
+            <a href="<?= $router->generate('contact-add');?>">Contact</a>
             <?php if(!isset($_SESSION['userId'])) : ?>
                 <li><a href="<?= $router->generate('login-show');?>">Connexion</a></li>
                 <li><a href="<?= $router->generate('user-add');?>">Inscription</a></li>

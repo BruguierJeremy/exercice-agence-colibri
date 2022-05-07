@@ -19,17 +19,17 @@ class UserController extends CoreController
         $lastname = filter_input(INPUT_POST, 'lastname');
 
         $formErrorList = [];
-        if (empty($firstname))
+        if (empty($email))
         {
-            $formErrorList[] = 'Le prénom ne doit pas être vide';
+            $formErrorList[] = 'L\'email ne doit pas être vide';
         }
         if (empty($lastname))
         {
             $formErrorList[] = 'Le nom ne doit pas être vide';
         }
-        if (empty($email))
+        if (empty($firstname))
         {
-            $formErrorList[] = 'L\'email ne doit pas être vide';
+            $formErrorList[] = 'Le prénom ne doit pas être vide';
         }
         if (empty($password))
         {

@@ -2,11 +2,9 @@
 
 <?php if (isset($errorList)) :?>
   <?php foreach( $errorList as $currentError): ?>
-
     <div class="alert" role="alert">
       <?= $currentError; ?>
     </div>
-
   <?php endforeach; ?>
 <?php endif; ?>
 
@@ -24,8 +22,12 @@
         <input type="text" class="form-control" name="firstname" id="firstname" placeholder="" value="">
     </div>
     <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="" value="">
+        <label for="subject">Sujet</label>
+        <input type="text" class="form-control" name="subject" id="subject" placeholder="" value="">
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea type="textarea" class="form-control" name="message" id="message" placeholder="" value=""></textarea>
     </div>
     <button type="submit" class="btn-validate">Valider</button>
 </form>

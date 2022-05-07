@@ -97,7 +97,8 @@ footer{
   text-align: center;
 }
 
-.form-control{
+.form-control,
+textarea{
   background-color: rgb(231, 229, 229);
 }
 
@@ -115,10 +116,17 @@ footer{
   margin-bottom: 2rem;
 }
 
-.login-h1{
+h2{
   text-align: center;
+  margin: 2.5rem 0 5rem 0;
 }
 
 .btn-validate-login{
   margin-bottom: 2rem;
+}
+
+.alert{
+  text-align: center;
+  color: rgb(95, 30, 30);
+  margin-bottom: 1rem;
 }
