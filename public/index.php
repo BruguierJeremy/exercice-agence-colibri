@@ -62,6 +62,33 @@ $router->map(
     'user-addPost'
 );
 
+$router->map(
+    'GET',
+    '/connexion',
+    [
+        'method' => 'showLogin',
+        'controller' => '\App\Controllers\LoginController',
+    ],
+    'login-show'
+);
+$router->map(
+    'POST',
+    '/connexion',
+    [
+        'method' => 'postLogin',
+        'controller' => '\App\Controllers\LoginController',
+    ],
+    'login-post'
+);
+$router->map(
+    'GET',
+    '/deconnexion',
+    [
+        'method' => 'logout',
+        'controller' => '\App\Controllers\MainController',
+    ],
+    'main-logout'
+);
 /* -------------
 --- DISPATCH ---
 --------------*/

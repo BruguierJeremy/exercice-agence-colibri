@@ -11,7 +11,11 @@
     <nav>
         <h1>MON SUPER SITE</h1>
         <ul>
-            <li><a href="#a-definir">Connexion</a></li>
-            <li><a href="<?= $router->generate('user-add');?>">Inscription</a></li>
+            <?php if(!isset($_SESSION['userId'])) : ?>
+                <li><a href="<?= $router->generate('login-show');?>">Connexion</a></li>
+                <li><a href="<?= $router->generate('user-add');?>">Inscription</a></li>
+            <?php else : ?>
+                <li><a href="<?= $router->generate('main-logout');?>">Déconnexion</a></li>
+            <?php endif; ?>
         </ul>
     </nav>

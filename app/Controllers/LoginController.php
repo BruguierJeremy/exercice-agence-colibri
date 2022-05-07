@@ -15,11 +15,11 @@ class LoginController extends CoreController
      */
     public function showLogin()
     {   
-        $this->show('appusers/app_user');
+        $this->show('user/login');
     }
 
     
-    public function login()
+    public function postLogin()
     {
         // récupération des données
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);

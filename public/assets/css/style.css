@@ -61,6 +61,9 @@ footer{
   color: white;
   text-align: center;
   padding: 2.5rem 0 2.5rem 0;
+  position: fixed; 
+  bottom: 0;
+  width: 100%; 
 }
 
 @media (max-width: 1014px) {
@@ -102,4 +105,20 @@ footer{
   text-align: center;
   background-color: rgb(192,192,192);
   margin: 0 0 2rem 50%;
+}
+
+.login-form{
+  text-align: center;
+}
+
+.form-login{
+  margin-bottom: 2rem;
+}
+
+.login-h1{
+  text-align: center;
+}
+
+.btn-validate-login{
+  margin-bottom: 2rem;
 }

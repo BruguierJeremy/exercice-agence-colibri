@@ -44,7 +44,7 @@ class UserController extends CoreController
             $newUser->setPassword(password_hash($password, PASSWORD_DEFAULT));
             $newUser->insert();
         
-            $this->redirect('main-home');
+            $this->redirect('login-show');
             exit;
         } 
         else 
